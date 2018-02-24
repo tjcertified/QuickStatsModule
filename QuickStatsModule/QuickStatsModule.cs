@@ -12,9 +12,14 @@ namespace QuickStatsModule
 
         private List<long> contentSizes;
 
+        public QuickStatsModule()
+        {
+            contentSizes = new List<long>();
+        }
+
         public String ModuleName
         {
-            get { return "HelloWorldModule"; }
+            get { return "QuickStatsModule"; }
         }
 
         public void Dispose()
@@ -60,15 +65,31 @@ namespace QuickStatsModule
             DateTime handlerStart = (DateTime)HttpContext.Current.Items[HANDLER_START_KEY];
             DateTime handlerEnd = (DateTime)HttpContext.Current.Items[HANDLER_END_KEY];
             contentSizes.Add(_watcher.Length);
-            HttpContext.Current.Response.Write("<hr><h1><font color=red> HelloWorldModule: Begin Request </font></h1>"
-                + "<p>Response Size: " + _watcher.Length + " bytes.</p>"
-                + "<p>Total Pipeline Requests So Far: " + contentSizes.Count + "</p>"
-                + "<p>Total Request Time: " + appEnd.Subtract(appStart).TotalMilliseconds + "ms.</p>"
-                + "<p>Total HttpHandler Time: " + handlerEnd.Subtract(handlerStart).TotalMilliseconds + "ms.</p>"
-                + "<p>Average response size: " + contentSizes.Average() + " bytes.</p>"
-                + "<p>Largest response size: " + contentSizes.Max() + " bytes.</p>"
-                + "<p>Smallest response size: " + contentSizes.Min() + " bytes.</p>"
-                + "<hr>");
+            HttpContext.Current.Response.Write(
+                GenerateStats(_watcher.Length,
+                              appEnd.Subtract(appStart).TotalMilliseconds,
+                              handlerEnd.Subtract(handlerStart).TotalMilliseconds,
+                              contentSizes.Count,
+                              contentSizes.Average(),
+                              contentSizes.Max(),
+                              contentSizes.Min())
+                              );
+
+        }
+
+        public string GenerateStats(long responseLength, double requestMilliseconds, double handlerMilliseconds, int responseCount, double responseAverage, double responseMax, double responseMin)
+        {
+            return string.Format(
+                $@"<hr>
+                   <p>Response Size: {responseLength}</p>
+                   <p>Total Request Time: {requestMilliseconds}</p>
+                   <p>Total HttpHandler Time: {handlerMilliseconds}</p>
+                   <p>Total Pipeline Requests: {responseCount}</p>
+                   <p>Average response size: {responseAverage} bytes</p>
+                   <p>Largest response size: {responseMax} bytes</p>
+                   <p>Smallest response size: {responseMin} bytes</p>
+                "
+                );
         }
 
         private const string APP_START_KEY = "appStartTime";
