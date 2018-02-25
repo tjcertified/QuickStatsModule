@@ -23,16 +23,23 @@ namespace QuickStatsModule.Tests
         [TestMethod()]
         public void GenerateStatsMakesCorrectString()
         {
+            long responseSize = 10;
+            int requestTime = 5;
+            int handlerTime = 10;
+            int responses = 30;
+            int avgSize = 10;
+            int maxSize = 20;
+            int minSize = 5;
             string result = $@"<hr>
-                   <p>Response Size: 1</p>
-                   <p>Total Request Time: 2</p>
-                   <p>Total HttpHandler Time: 3</p>
-                   <p>Total Pipeline Requests: 4</p>
-                   <p>Average response size: 5 bytes</p>
-                   <p>Largest response size: 10 bytes</p>
-                   <p>Smallest response size: 1 bytes</p>
+                   <p>Response Size: {responseSize} bytes</p>
+                   <p>Total Request Time: {requestTime}ms</p>
+                   <p>Total HttpHandler Time: {handlerTime}ms</p>
+                   <p>Total Pipeline Requests: {responses}</p>
+                   <p>Average response size: {avgSize} bytes</p>
+                   <p>Largest response size: {maxSize} bytes</p>
+                   <p>Smallest response size: {minSize} bytes</p>
                 ";
-            Assert.AreEqual(result, _qsmTestHarness.GenerateStats(1, 2, 3, 4, 5, 10, 1));
+            Assert.AreEqual(result, _qsmTestHarness.GenerateStats(responseSize, requestTime, handlerTime, responses, avgSize, maxSize, minSize));
         }
     }
 }

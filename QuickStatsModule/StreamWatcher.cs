@@ -8,13 +8,11 @@ using System.Web;
 namespace QuickStatsModule
 {
     /// <summary>
-    /// Summary description for StreamWatcher
+    /// Class to monitor a stream without modifying it.
     /// </summary>
     public class StreamWatcher : Stream
     {
-        private Stream _base;
-        private MemoryStream _memoryStream = new MemoryStream();
-
+        
         public StreamWatcher(Stream stream)
         {
             _base = stream;
@@ -41,7 +39,6 @@ namespace QuickStatsModule
             return Encoding.UTF8.GetString(_memoryStream.ToArray());
         }
 
-        #region Rest of the overrides
         public override bool CanRead
         {
             get { return _memoryStream.CanRead; }
@@ -83,6 +80,9 @@ namespace QuickStatsModule
                 _memoryStream.Position = value;
             }
         }
-        #endregion
+
+        private Stream _base;
+        private MemoryStream _memoryStream = new MemoryStream();
+
     }
 }
