@@ -22,4 +22,4 @@ This module will also collect:
 All of these stats will be displayed in a section at the bottom of each page that goes through the pipeline.
 
 # Installation
-To install this module, simply drop the QuickStatsModule.dll file from 'Releases' into the /bin folder of the ASP.NET application you wish for it to process.
+To install this module, simply drop the QuickStatsModule.dll file from [Releases](https://github.com/tjcertified/QuickStatsModule/releases) into the /bin folder of the ASP.NET application you wish for it to process.
