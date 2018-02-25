@@ -8,16 +8,16 @@ This module has two sets of stats:
 
 ### Current Stats
 This module will collect:
-    * the size of the current response 
-    * the time spent on the current request
-    * the time specifically spent inside the HttpHandler for the current request
+    - the size of the current response 
+    - the time spent on the current request
+    - the time specifically spent inside the HttpHandler for the current request
 
 ### Aggregate Stats
 This module will also collect:
-    * how many responses have been completely processed by the ASP.NET pipeline and this module
-    * the average response size
-    * the largest response size so far
-    * the smallest response size so far
+    - how many responses have been completely processed by the ASP.NET pipeline and this module
+    - the average response size
+    - the largest response size so far
+    - the smallest response size so far
 
 All of these stats will be displayed in a section at the bottom of each page that goes through the pipeline.
 
