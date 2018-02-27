@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickStatsModule", "QuickSt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QSMTests", "QSMTests\QSMTests.csproj", "{D625B027-BA6D-443A-A940-9DA7715A0094}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QSMInstaller", "QSMInstaller\QSMInstaller.csproj", "{5E87CA27-0B5A-426F-A03F-2475D4E6C754}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D625B027-BA6D-443A-A940-9DA7715A0094}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D625B027-BA6D-443A-A940-9DA7715A0094}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D625B027-BA6D-443A-A940-9DA7715A0094}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E87CA27-0B5A-426F-A03F-2475D4E6C754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E87CA27-0B5A-426F-A03F-2475D4E6C754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E87CA27-0B5A-426F-A03F-2475D4E6C754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E87CA27-0B5A-426F-A03F-2475D4E6C754}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
