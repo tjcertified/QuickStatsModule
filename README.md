@@ -22,4 +22,6 @@ This module will also collect:
 All of these stats will be displayed in a section at the bottom of each page that goes through the pipeline.
 
 # Installation
-To install this module, simply drop the QuickStatsModule.dll file from [Releases](https://github.com/tjcertified/QuickStatsModule/releases) into the /bin folder of the ASP.NET application you wish for it to process.
+To install this module, download QSMInstaller.exe and QuickStatsModule.dll into the same folder on your IIS server. In an elevated (Administrator) command prompt, navigate to this folder, and run QSMInstaller.exe, which will:
+- install the .dll into the GAC
+- add the module to the ApplicationHost.config
